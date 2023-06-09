@@ -1,0 +1,192 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#canBtn {
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+body {
+    background-color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.sections {
+    background-color: whitesmoke;
+    color: black;
+}
+
+.buttons {
+    background-color: black;
+    cursor: pointer;
+    color: whitesmoke;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#clearBtn {
+    width: 100%;
+}
+
+.labels {
+    font-weight: bold;
+}
+
+.profile {
+    border-radius: 100%;
+}
+
+@media all and (max-width: 767px) {
+
+    body {
+        padding: 0.5rem;
+    }
+    .sections {
+        width: 100%;
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+    }
+
+    .buttons {
+        font-size: 1rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    #addBtn {
+        margin: 0.5rem 0;
+    }
+
+    .labels {
+        font-size: 1rem;
+    }
+
+    .inputDiv {
+        padding: 0.5rem;
+    }
+
+    .inputDiv label {
+        font-size: 1.2rem;
+    }
+
+    .inputDiv input {
+        padding: 0.25rem;
+        font-size: 1rem;
+    }
+
+    .profile {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    #canBtn {
+        font-size: 1.5rem;
+    }
+}
+
+@media all and (min-width:  768px) and (max-width: 1023px) {
+    body {
+        padding: 1rem;
+    }
+    .sections {
+        width: 100%;
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+    }
+
+    .buttons {
+        font-size: 1.5rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    #addBtn {
+        margin: 0.5rem 0;
+    }
+
+    #title {
+        font-size: 2rem;
+    }
+
+    .labels {
+        font-size: 1.5rem;
+    }
+
+    .inputDiv {
+        padding: 1rem;
+    }
+
+    .inputDiv label {
+        font-size: 2rem;
+    }
+
+    .inputDiv input {
+        padding: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    .profile {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    #canBtn {
+        font-size: 2rem;
+    }
+}
+
+@media all and (min-width: 1024px) {
+    .sections {
+        width: 40%;
+        padding: 1rem;
+    }
+
+    #detSection {
+        margin: 3rem auto;
+    }
+    
+    #formSection {
+        margin: 1rem auto;
+    }
+
+    .buttons {
+        font-size: 1.5rem;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    #addBtn {
+        margin: 0.5rem 0;
+    }
+
+    #title {
+        font-size: 1.5rem;
+    }
+
+    .labels {
+        font-size: 1.2rem;
+    }
+
+    .inputDiv {
+        padding: 0.5rem;
+    }
+
+    .inputDiv label {
+        font-size: 1.5rem;
+    }
+
+    .inputDiv input {
+        padding: 0.25rem;
+        font-size: 1.2rem;
+    }
+
+    .profile {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    #canBtn {
+        font-size: 1.2rem;
+    }
+}
