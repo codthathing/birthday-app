@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ReactDOM  from 'react-dom';
 import './style.css';
 import unknown from './unknown_black.jpeg';
@@ -38,7 +38,7 @@ const Input = () => {
           <p>{years}</p>
         </div>
       </div>
-      <button id='canBtn' type='button'>&times;</button>
+      <button id='canBtn' onClick={() => delBirth(id)} type='button'>&times;</button>
     </div>
   } 
 
@@ -51,10 +51,11 @@ const Input = () => {
     window.location.reload()
   }
 
-  // const delBirth = (id) => {
-  //   let canBirth = people.filter((x) => x.id !== id)
-  //   setPeople(canBirth)
-  // }
+  const delBirth = (id) => {
+    let canBirth = people.filter((x) => x.id !== id)
+    localStorage.setItem('people', JSON.stringify(canBirth))
+    setPeople(JSON.parse(localStorage.getItem('people')))
+  }
 
   return (
       
@@ -62,7 +63,7 @@ const Input = () => {
       <section className='sections' id='detSection'>
       <h1 id='title' style={{marginBottom:'1rem'}}>{people.length} birthdays today</h1>
        {people.map((infos)=>   { 
-          const {id, pics, name, years} = infos
+          // const {id, pics, name, years} = infos
           return <Structure key={infos.id} {...infos}></Structure>
         })} 
         <button type='button' className='buttons' id='clearBtn' onClick={clearList}>Clear List</button>
@@ -70,10 +71,10 @@ const Input = () => {
 
       <form className='sections' id='formSection'>
         {/* <div className="inputDiv">
-        <input type="file" 
-          value={profile} 
-          onChange={(pro)=> setProfile(pro.target.value) }
-          name='profile'/>
+          <input type="file" 
+            value={profile} 
+            onChange={(pro)=> setProfile(pro.target.value) }
+            name='profile'/>
         </div> */}
         <div className="inputDiv">
           <label className='labels' htmlFor='fullName'>Name : </label>
