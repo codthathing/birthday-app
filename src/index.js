@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import ReactDOM  from 'react-dom';
 import './style.css';
-import unknown from './unknown_black.jpeg';
+import unknown from './External/unknown_black.jpeg'
 import PropTypes from 'prop-types';
 
 
 let peoFromLocal = JSON.parse(localStorage.getItem('people') || '[]')
 const Input = () => {
-  // const [profile, setProfile] = useState('')
+  const [profile, setProfile] = useState(null)
   const [person, setPerson] = useState('')
   const [age, setAge] = useState()
   const [people, setPeople] = useState(peoFromLocal)
@@ -16,7 +16,7 @@ const Input = () => {
     if(person && age) {
         let mainDet = {
           id: people.length,
-          pics:`${unknown}`,
+          pics: profile,
           name: person,
           years: age+ "years Old",
         }
@@ -24,15 +24,18 @@ const Input = () => {
         localStorage.setItem('people', JSON.stringify(people))
         setPerson('')
         setAge('')
+        setProfile(null)
+        window.location.reload();
     } else {
         alert("No details filled.")
     }
   }
 
   const Structure = ({id, pics, name, years}) => {
+    const picture = pics && pics
     return <div style={{display:'flex', marginBottom:'0.5rem', justifyContent:'space-between'}}>
       <div style={{display:'flex',}}>
-        <img style={{marginRight:'0.5rem'}} className='profile' src={pics}/>
+        <img style={{marginRight:'0.5rem'}} className='profile' src={picture || unknown} alt='unKnown'/>
         <div>
           <h1>{name}</h1>
           <p>{years}</p>
@@ -70,12 +73,16 @@ const Input = () => {
       </section>
 
       <form className='sections' id='formSection'>
-        {/* <div className="inputDiv">
+        <div className="inputDiv">
           <input type="file" 
-            value={profile} 
-            onChange={(pro)=> setProfile(pro.target.value) }
+            accept='image/*'
+            onChange={({target: {files}}) => {
+              if(files) {
+                setProfile(URL.createObjectURL(files[0]))
+              }
+            }}
             name='profile'/>
-        </div> */}
+        </div>
         <div className="inputDiv">
           <label className='labels' htmlFor='fullName'>Name : </label>
           <input type="text" 
