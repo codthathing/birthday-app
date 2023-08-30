@@ -37,8 +37,8 @@ const Input = () => {
       <div style={{display:'flex',}}>
         <img style={{marginRight:'0.5rem'}} className='profile' src={picture || unknown} alt='unKnown'/>
         <div>
-          <h1>{name}</h1>
-          <p>{years}</p>
+          <h1 className='bitName'>{name}</h1>
+          <p className='bitYear'>{years}</p>
         </div>
       </div>
       <button id='canBtn' onClick={() => delBirth(id)} type='button'>&times;</button>
@@ -66,7 +66,6 @@ const Input = () => {
       <section className='sections' id='detSection'>
       <h1 id='title' style={{marginBottom:'1rem'}}>{people.length} birthdays today</h1>
        {people.map((infos)=>   { 
-          // const {id, pics, name, years} = infos
           return <Structure key={infos.id} {...infos}></Structure>
         })} 
         <button type='button' className='buttons' id='clearBtn' onClick={clearList}>Clear List</button>
