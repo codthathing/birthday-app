@@ -36,14 +36,13 @@ const App = () => {
   };
 
   const delBirth = (id) => {
-    let canBirth = people.filter((x) => x.id !== id);
-    setPeople(canBirth);
+    setPeople(prevState => prevState.filter((people) => people.id !== id));
   };
 
   return (
     <section>
       <section className='sections' id='detSection'>
-        <h1 id='title' style={{ marginBottom: '1rem' }}>{people.length} birthdays today</h1>
+        <h1 id='title'>There are {people.length} birthdays today</h1>
         <BirthdayComponent birthdayArray={people} deleteFunction={delBirth} />
         <PageButton id={"clearBtn"} buttonFunction={clearList} text={"Clear List"} />
       </section>

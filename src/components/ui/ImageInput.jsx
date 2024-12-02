@@ -1,7 +1,7 @@
 const ImageInput = ({ imageInput, setImageInput, inputRef }) => {
   return (
     <div className="inputDiv">
-      <input type="file" name="picture" accept="image/*" ref={inputRef} onChange={({ target: { files } }) => {
+      <input type="file" name="picture" style={{padding: "0rem"}} accept="image/*" ref={inputRef} onChange={({ target: { files } }) => {
         if (files && files[0]) {
           const reader = new FileReader();
           reader.onload = (e) => {
